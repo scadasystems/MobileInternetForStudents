@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "975970658229",
+    "firebase_url": "https://mobileinternetforstudent.firebaseio.com",
+    "project_id": "mobileinternetforstudent",
+    "storage_bucket": "mobileinternetforstudent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975970658229:android:7cbd0b63e4e033b7",
+        "android_client_info": {
+          "package_name": "com.example.mobileinternetforstudent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975970658229-6hb0ch62lf3kebvu3q7dfpqlhds9iqb6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobileinternetforstudent",
+            "certificate_hash": "2673211c0362de4db2246204bdd2ba0f531deca6"
+          }
+        },
+        {
+          "client_id": "975970658229-i9fpdhqr7ot5iqhc7cq064rrq3fa2gt9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn0zXuElUlcqVF4-XPVUndwnDOqJ0KNCk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975970658229-i9fpdhqr7ot5iqhc7cq064rrq3fa2gt9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
