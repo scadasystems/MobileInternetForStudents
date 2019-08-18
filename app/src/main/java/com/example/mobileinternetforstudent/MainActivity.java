@@ -1,5 +1,7 @@
 package com.example.mobileinternetforstudent;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +16,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.mobileinternetforstudent.ExampleJson.JsonActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import butterknife.BindView;
@@ -95,7 +98,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void tvJson(View view) {
-
+        Intent intent_json = new Intent(this, JsonActivity.class);
+        startActivity(intent_json);
     }
 
     public void tvMap(View view) {
