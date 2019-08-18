@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.MainFragment">
+
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cv_json"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="8dp"
+        card_view:layout_constraintRight_toLeftOf="@+id/cv_map"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:layout_constraintWidth_percent="0.45">
+
+        <TextView
+            android:id="@+id/tv_json"
+            android:onClick="tvJson"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="JSON \n파싱 예제"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            tools:ignore="OnClick" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cv_map"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="8dp"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintLeft_toRightOf="@+id/cv_json"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:layout_constraintVertical_weight="1"
+        card_view:layout_constraintWidth_percent="0.45">
+
+        <TextView
+            android:id="@+id/tv_map"
+            android:onClick="tvMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Google Map\n예제"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            tools:ignore="OnClick" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.28" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_webview"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:onClick="btnWebview"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#ffffff"
+        android:elevation="10dp"
+        android:text="WebView\n예제"
+        android:textColor="#757575"
+        android:textSize="30sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline01"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintWidth_percent="0.45"
+        tools:ignore="OnClick" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_qr"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:onClick="btnQR"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#ffffff"
+        android:elevation="10dp"
+        android:text="QR\n예제"
+        android:textColor="#757575"
+        android:textSize="30sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintLeft_toRightOf="@id/btn_webview"
+        app:layout_constraintTop_toTopOf="@id/guideline01"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintWidth_percent="0.45"
+        tools:ignore="OnClick" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

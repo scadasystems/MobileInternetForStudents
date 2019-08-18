@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mUser = mAuth.getCurrentUser();
-        if ( !(mUser == null) ) { // 유저 정보가 있다면 바로 MainActivity로 이동
+        if (!(mUser == null)) { // 유저 정보가 있다면 바로 MainActivity로 이동
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
             finish();
@@ -75,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        getSupportActionBar().setTitle("로그인"); // toolbar 타이틀 바꾸기
         btnGoogleSignIn.setSize(SignInButton.SIZE_WIDE);    // 구글 로그인 버튼 테마
 
         // configure google sign in
@@ -196,6 +195,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
     // 구글 로그인 logic
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle : " + acct.getId());
