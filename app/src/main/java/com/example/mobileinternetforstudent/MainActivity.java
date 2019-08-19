@@ -16,6 +16,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.mobileinternetforstudent.ExampleGoogleMap.GoogleMapActivity;
 import com.example.mobileinternetforstudent.ExampleJson.JsonActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -103,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void tvMap(View view) {
+        Intent intent_map = new Intent(this, GoogleMapActivity.class);
+        startActivity(intent_map);
 
     }
 

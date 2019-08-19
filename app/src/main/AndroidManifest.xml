@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ExampleJson.JsonActivity"></activity>
+        <activity android:name=".ExampleGoogleMap.GoogleMapActivity"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".ExampleJson.JsonActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAn0zXuElUlcqVF4-XPVUndwnDOqJ0KNCk" />
     </application>
 
 </manifest>

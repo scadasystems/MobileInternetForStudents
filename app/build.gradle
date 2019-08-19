@@ -55,8 +55,13 @@ dependencies {
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    // GoogleMaps
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
     // Permissions dispatcher
-    implementation('com.github.hotchemi:permissionsdispatcher:3.1.0') { exclude module: 'support-v13' }
+    implementation('com.github.hotchemi:permissionsdispatcher:3.1.0') {
+        exclude module: 'support-v13'
+    }
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.1.0'
 }
 
