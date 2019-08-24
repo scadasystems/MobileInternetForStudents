@@ -18,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.mobileinternetforstudent.ExampleGoogleMap.GoogleMapActivity;
 import com.example.mobileinternetforstudent.ExampleJson.JsonActivity;
+import com.example.mobileinternetforstudent.ExampleWebView.WebviewActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import butterknife.BindView;
@@ -110,6 +111,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void btnWebview(View view) {
+        Intent intent_webview = new Intent(this, WebviewActivity.class);
+        startActivity(intent_webview);
 
     }
 
