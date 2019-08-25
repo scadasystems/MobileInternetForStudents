@@ -2,6 +2,7 @@ package com.example.mobileinternetforstudent;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,12 +20,13 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.mobileinternetforstudent.ExampleGoogleMap.GoogleMapActivity;
 import com.example.mobileinternetforstudent.ExampleJson.JsonActivity;
 import com.example.mobileinternetforstudent.ExampleWebView.WebviewActivity;
+import com.example.mobileinternetforstudent.Fragments.MainFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MainFragment.OnFragmentInteractionListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -34,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     // controller
     public NavController navController;
+
+    @Override
+    public void onFragmentInteraction(Uri uri) { }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,10 +118,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void btnWebview(View view) {
         Intent intent_webview = new Intent(this, WebviewActivity.class);
         startActivity(intent_webview);
-
-    }
-
-    public void btnQR(View view) {
 
     }
 }

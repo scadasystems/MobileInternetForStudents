@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_mainFragment_to_firebaseUploadFragment"
             app:destination="@id/firebaseUploadFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_QRFragment"
+            app:destination="@id/QRFragment" />
     </fragment>
     <fragment
         android:id="@+id/firebaseUploadFragment"
         android:name="com.example.mobileinternetforstudent.Fragments.FirebaseUploadFragment"
         android:label="firebase 업로드 화면"
         tools:layout="@layout/fragment_firebase_upload" />
+    <fragment
+        android:id="@+id/QRFragment"
+        android:name="com.example.mobileinternetforstudent.ExampleQR.QRFragment"
+        android:label="QR 예제"
+        tools:layout="@layout/fragment_qr" />
 </navigation>
