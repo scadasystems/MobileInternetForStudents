@@ -49,6 +49,11 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     // Material Design
     implementation 'com.google.android.material:material:1.1.0-alpha09'
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    // circle imageView
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
     // Navigation graph
     implementation 'androidx.navigation:navigation-fragment:2.2.0-alpha01'
     implementation 'androidx.navigation:navigation-ui:2.2.0-alpha01'
