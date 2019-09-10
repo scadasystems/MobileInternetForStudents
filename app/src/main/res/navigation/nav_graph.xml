@@ -11,20 +11,20 @@
         android:label="메인 화면"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_firebaseFragment"
-            app:destination="@id/firebaseFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_QRFragment"
             app:destination="@id/QRFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_firebaseFragment"
+            app:destination="@id/firebaseFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/firebaseFragment"
-        android:name="com.example.mobileinternetforstudent.Fragments.FirebaseFragment"
-        android:label="firebase 업로드 화면"
-        tools:layout="@layout/fragment_firebase" />
     <fragment
         android:id="@+id/QRFragment"
         android:name="com.example.mobileinternetforstudent.ExampleQR.QRFragment"
         android:label="QR 예제"
         tools:layout="@layout/fragment_qr" />
+    <fragment
+        android:id="@+id/firebaseFragment"
+        android:name="com.example.mobileinternetforstudent.Fragments.FirebaseFragment"
+        android:label="fragment_firebase"
+        tools:layout="@layout/fragment_firebase" />
 </navigation>
