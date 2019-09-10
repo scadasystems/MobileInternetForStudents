@@ -14,10 +14,10 @@ import com.example.mobileinternetforstudent.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FirebaseUploadFragment extends Fragment {
+public class FirebaseFragment extends Fragment {
 
 
-    public FirebaseUploadFragment() {
+    public FirebaseFragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class FirebaseUploadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_firebase_upload, container, false);
+        return inflater.inflate(R.layout.fragment_firebase, container, false);
     }
 
 }

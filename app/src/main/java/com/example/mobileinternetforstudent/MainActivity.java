@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (id) {
             case R.id.first:        // firebase 업로드 프레그먼트
-                navController.navigate(R.id.firebaseUploadFragment);
+                navController.navigate(R.id.firebaseFragment);
                 break;
 
             case R.id.second:   // 업데이트 예정
