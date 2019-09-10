@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -27,6 +28,10 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,15 +55,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onFragmentInteraction(Uri uri) {
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ButterKnife.bind(this);
 
         setupNavigation();
 
         mAuth = FirebaseAuth.getInstance();     // firebase 인스턴스 가져오기
+
+        Logger.addLogAdapter(new AndroidLogAdapter() {
+            @Override
+            public boolean isLoggable(int priority, @Nullable String tag) {
+                return BuildConfig.DEBUG;
+            }
+        });
+
     }
 
     @Override
@@ -69,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // DrawerLayout 로직
     private void setupNavigation() {
         setSupportActionBar(toolbar);   // 기본 액션바를 custom toolbar 로 사용한다.
-        getSupportActionBar().setDisplayShowHomeEnabled(true);  // 툴바에 아이콘이 정상적으로 표시된다.
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);  // 툴바에 아이콘이 정상적으로 표시된다.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);  // 다른 프레그먼트로 넘어갈 때 back 버튼이 툴바에 생김.
 
         // controller를 사용하여 main fragment 랑 연결
