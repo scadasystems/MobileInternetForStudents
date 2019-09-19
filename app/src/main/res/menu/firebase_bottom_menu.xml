@@ -4,14 +4,17 @@
     <item
         android:id="@+id/bottomNavFragmentHome"
         android:icon="@drawable/ic_home_black_24dp"
+        android:enabled="true"
         android:title="홈"/>
     <item
         android:id="@+id/bottomNavFragmentGallery"
         android:icon="@drawable/ic_panorama_black_24dp"
+        android:enabled="true"
         android:title="갤러리"/>
     <item
         android:id="@+id/bottomNavFragmentUpload"
         android:icon="@drawable/ic_cloud_upload_black_24dp"
+        android:enabled="true"
         android:title="업로드"/>
 
 </menu>
