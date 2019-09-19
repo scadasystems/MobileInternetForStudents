@@ -46,6 +46,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.0.0'
     implementation 'com.google.firebase:firebase-firestore:21.1.1'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.firebase:firebase-storage:19.0.1'
+
     // butterknife
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
@@ -74,6 +76,8 @@ dependencies {
     implementation 'info.androidhive:barcode-reader:1.1.5'
     // ZXing code
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+    // lottie
+    implementation 'com.airbnb.android:lottie:2.8.0'
     // Permissions dispatcher
     implementation('com.github.hotchemi:permissionsdispatcher:3.1.0') {
         exclude module: 'support-v13'
