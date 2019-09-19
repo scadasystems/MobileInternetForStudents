@@ -1,4 +1,4 @@
-package com.example.mobileinternetforstudent.Fragments;
+package com.example.mobileinternetforstudent.fragments;
 
 import android.content.Context;
 import android.net.Uri;

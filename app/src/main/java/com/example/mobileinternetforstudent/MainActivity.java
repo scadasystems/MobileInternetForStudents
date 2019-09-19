@@ -20,10 +20,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.bumptech.glide.Glide;
-import com.example.mobileinternetforstudent.ExampleGoogleMap.GoogleMapActivity;
-import com.example.mobileinternetforstudent.ExampleJson.JsonActivity;
-import com.example.mobileinternetforstudent.ExampleWebView.WebviewActivity;
-import com.example.mobileinternetforstudent.Fragments.MainFragment;
+import com.example.mobileinternetforstudent.exampleGoogleMap.GoogleMapActivity;
+import com.example.mobileinternetforstudent.exampleJson.JsonActivity;
+import com.example.mobileinternetforstudent.exampleWebView.WebviewActivity;
+import com.example.mobileinternetforstudent.fragments.MainFragment;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;

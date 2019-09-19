@@ -24,7 +24,7 @@
         android:theme="@style/AppTheme"
         android:hardwareAccelerated="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ExampleWebView.WebviewActivity" />
+        <activity android:name=".exampleWebView.WebviewActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,10 +34,10 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".ExampleJson.JsonActivity"
+            android:name=".exampleJson.JsonActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".ExampleGoogleMap.GoogleMapActivity"
+            android:name=".exampleGoogleMap.GoogleMapActivity"
             tools:ignore="InnerclassSeparator" /> <!-- GoogleMaps API -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"

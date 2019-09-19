@@ -1,4 +1,4 @@
-package com.example.mobileinternetforstudent.ExampleWebView;
+package com.example.mobileinternetforstudent.exampleWebView;
 
 import android.app.PendingIntent;
 import android.content.Context;

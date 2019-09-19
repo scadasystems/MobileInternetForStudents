@@ -1,4 +1,4 @@
-package com.example.mobileinternetforstudent.ExampleGoogleMap;
+package com.example.mobileinternetforstudent.exampleGoogleMap;
 
 import android.Manifest;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.example.mobileinternetforstudent.ExampleJson;
+package com.example.mobileinternetforstudent.exampleJson;
 
 import android.content.Intent;
 import android.os.Bundle;

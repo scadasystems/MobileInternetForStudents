@@ -1,4 +1,4 @@
-package com.example.mobileinternetforstudent.ExampleQR;
+package com.example.mobileinternetforstudent.exampleQR;
 
 import android.os.Bundle;
 import android.util.SparseArray;
