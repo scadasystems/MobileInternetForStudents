@@ -11,6 +11,7 @@ import android.util.Patterns;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -31,22 +32,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-    @BindView(R.id.edt_id)
-    TextInputEditText edtId;
-    @BindView(R.id.edt_pw)
-    TextInputEditText edtPw;
-    @BindView(R.id.btn_sign_in)
-    MaterialButton btnSignIn;
-    @BindView(R.id.btn_login)
-    MaterialButton btnLogin;
-    @BindView(R.id.btn_google_sign_in)
-    SignInButton btnGoogleSignIn;
+    private TextInputEditText edtId, edtPw;
+    private MaterialButton btnSignIn, btnLogin;
+    private SignInButton btnGoogleSignIn;
 
     // firebase
     private FirebaseAuth mAuth;
@@ -73,7 +64,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
+
+        edtId = findViewById(R.id.edt_id);
+        edtPw = findViewById(R.id.edt_pw);
+        btnSignIn = findViewById(R.id.btn_sign_in);
+        btnLogin = findViewById(R.id.btn_login);
+        btnGoogleSignIn = findViewById(R.id.btn_google_sign_in);
 
         btnGoogleSignIn.setSize(SignInButton.SIZE_WIDE);    // 구글 로그인 버튼 테마
 
@@ -87,25 +83,10 @@ public class LoginActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-    }
 
-    @OnClick({R.id.btn_sign_in, R.id.btn_login, R.id.btn_google_sign_in})
-    public void onViewClicked(View view) {
-        // 이메일, 비밀번호 텍스트 값
-        String email = edtId.getText().toString();             // 이메일 값 가져오기
-        String password = edtPw.getText().toString();   // 패스워드 값 가져오기
-
-        switch (view.getId()) {
-            case R.id.btn_sign_in:  // 회원가입 버튼
-                registerAccount(email, password);
-                break;
-            case R.id.btn_login:    // 로그인 버튼
-                loginAccount(email, password);
-                break;
-            case R.id.btn_google_sign_in:   // 구글 로그인 버튼
-                googleSignIn();
-                break;
-        }
+        btnSignIn.setOnClickListener(btnClickListener);
+        btnLogin.setOnClickListener(btnClickListener);
+        btnGoogleSignIn.setOnClickListener(btnClickListener);
     }
 
     // 회원가입 logic
@@ -237,4 +218,26 @@ public class LoginActivity extends AppCompatActivity {
         }
         return super.dispatchTouchEvent(event);
     }
+
+    private Button.OnClickListener btnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            // 이메일, 비밀번호 텍스트 값
+            String email = edtId.getText().toString();             // 이메일 값 가져오기
+            String password = edtPw.getText().toString();   // 패스워드 값 가져오기
+
+            switch (view.getId()) {
+                case R.id.btn_sign_in:  // 회원가입 버튼
+                    registerAccount(email, password);
+                    break;
+                case R.id.btn_login:    // 로그인 버튼
+                    loginAccount(email, password);
+                    break;
+                case R.id.btn_google_sign_in:   // 구글 로그인 버튼
+                    googleSignIn();
+                    break;
+            }
+        }
+    };
+
 }

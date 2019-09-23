@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
+
     defaultConfig {
         applicationId "com.example.mobileinternetforstudent"
         minSdkVersion 21
@@ -15,12 +16,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     dataBinding {
         enabled = true
     }
@@ -50,16 +53,12 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
     // firebase
-    implementation 'com.google.firebase:firebase-core:17.2.0'
     implementation 'com.google.firebase:firebase-analytics:17.2.0'
     implementation 'com.google.firebase:firebase-auth:19.0.0'
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.google.firebase:firebase-storage:19.0.1'
     implementation 'com.google.firebase:firebase-firestore:21.1.1'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
-    implementation 'com.google.firebase:firebase-storage:19.0.1'
-
-    // butterknife
-    implementation 'com.jakewharton:butterknife:10.1.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 
     // Material Design
     implementation 'com.google.android.material:material:1.1.0-alpha10'
@@ -100,6 +99,8 @@ dependencies {
     // lottie
     implementation 'com.airbnb.android:lottie:2.8.0'
 
+    // Databinding for kapt
+    kapt "com.android.databinding:compiler:$android_plugin_version"
 }
 
 apply plugin: 'com.google.gms.google-services'

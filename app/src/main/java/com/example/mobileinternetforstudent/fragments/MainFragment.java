@@ -15,11 +15,9 @@ import androidx.navigation.Navigation;
 import com.example.mobileinternetforstudent.R;
 import com.google.android.material.button.MaterialButton;
 
-import butterknife.BindView;
 
 public class MainFragment extends Fragment {
 
-    @BindView(R.id.btn_qr)
     MaterialButton btnQr;
 
     private OnFragmentInteractionListener mListener;

@@ -49,8 +49,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import noman.googleplaces.NRPlaces;
 import noman.googleplaces.Place;
 import noman.googleplaces.PlaceType;
@@ -59,11 +57,8 @@ import noman.googleplaces.PlacesListener;
 
 public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback, PlacesListener {
 
-    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.btn_bus)
     MaterialButton btnBus;
-    @BindView(R.id.layout_main)
     ConstraintLayout layoutMain;
 
     private static final String TAG = GoogleMapActivity.class.getSimpleName();
@@ -96,7 +91,11 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_map);
-        ButterKnife.bind(this);
+
+        toolbar = findViewById(R.id.toolbar);
+        btnBus = findViewById(R.id.btn_bus);
+        layoutMain = findViewById(R.id.layout_main);
+
         // 액티비티가 계속 켜짐 혹은 꺼짐 방지
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 

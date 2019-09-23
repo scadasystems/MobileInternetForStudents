@@ -20,8 +20,6 @@ import com.example.mobileinternetforstudent.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,16 +29,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class JsonActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.post_recycler_view)
     RecyclerView postRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json);
-        ButterKnife.bind(this);
+
+        toolbar = findViewById(R.id.toolbar);
+        postRecyclerView = findViewById(R.id.post_recycler_view);
 
         // custom toolbar 사용
         setSupportActionBar(toolbar);

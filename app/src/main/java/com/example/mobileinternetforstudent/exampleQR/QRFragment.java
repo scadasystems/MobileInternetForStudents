@@ -38,26 +38,13 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 import java.io.File;
 import java.io.FileOutputStream;
 
-import butterknife.BindView;
 
 public class QRFragment extends Fragment implements View.OnClickListener {
     private static final int REQUEST_CODE_PERMISSIONS = 100;
-    @BindView(R.id.fl_qrscanner)
-    FrameLayout flQrscanner;
-    @BindView(R.id.qr_title)
-    TextView qrTitle;
-    @BindView(R.id.qrImage)
-    ImageView qrImage;
-    @BindView(R.id.qr_subtitle)
-    TextView qrSubtitle;
-    @BindView(R.id.btnScanner)
-    ImageButton btnScanner;
-    @BindView(R.id.btnProfile)
-    ImageButton btnProfile;
-    @BindView(R.id.btnSave)
-    ImageButton btnSave;
-    @BindView(R.id.btnShare)
-    ImageButton btnShare;
+    private FrameLayout flQrscanner;
+    private TextView qrTitle, qrSubtitle;
+    private ImageView qrImage;
+    private ImageButton btnScanner, btnProfile, btnSave, btnShare;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

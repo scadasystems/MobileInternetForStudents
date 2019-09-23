@@ -25,24 +25,20 @@ import com.example.mobileinternetforstudent.MainActivity;
 import com.example.mobileinternetforstudent.R;
 import com.google.android.material.button.MaterialButton;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class WebviewActivity extends AppCompatActivity {
 
-    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.edt_address)
     EditText edtAddress;
-    @BindView(R.id.btn_webview)
     MaterialButton btnWebview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
-        ButterKnife.bind(this);
+
+        toolbar = findViewById(R.id.toolbar);
+        edtAddress = findViewById(R.id.edt_address);
+        btnWebview = findViewById(R.id.btn_webview);
 
         // custom toolbar 사용
         setSupportActionBar(toolbar);
@@ -58,6 +54,10 @@ public class WebviewActivity extends AppCompatActivity {
                     break;
             }
             return false;
+        });
+
+        btnWebview.setOnClickListener(view -> {
+            onViewClicked();
         });
     }
 
@@ -90,7 +90,6 @@ public class WebviewActivity extends AppCompatActivity {
         customTabsIntent.launchUrl(this, Uri.parse(url));   // CCT에 url 보내고 웹 열기
     }
 
-    @OnClick(R.id.btn_webview)
     public void onViewClicked() {
         String web_address = edtAddress.getText().toString().trim(); // EditText에서 주소 값 가져오기
 
