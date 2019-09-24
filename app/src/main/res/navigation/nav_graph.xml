@@ -29,6 +29,6 @@
     <fragment
         android:id="@+id/firebaseFragment"
         android:name="com.example.mobileinternetforstudent.fragments.FirebaseFragment"
-        android:label="fragment_firebase"
+        android:label="Firebase 예제화면"
         tools:layout="@layout/fragment_firebase" />
 </navigation>

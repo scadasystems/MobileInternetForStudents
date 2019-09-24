@@ -25,39 +25,41 @@ class FirebaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        // FragmentTransaction 사용
         val transaction = childFragmentManager.beginTransaction()
-        transaction.add(R.id.firebaseMainFragment, FirebaseHomeFragment())
-        transaction.commitNow()
+        transaction.add(R.id.firebaseMainFragment, FirebaseHomeFragment())  // 미리 add하여 home을 보여준다.
+        transaction.commitNow() // 바로 적용
 
+        // bottomNavigation 에 대한 리스너
         bottom_nav.setOnNavigationItemSelectedListener {
-            it.isChecked = false
-            when(it.itemId) {
+            when (it.itemId) {
                 R.id.bottomNavFragmentHome -> {
                     setFragment(FirebaseHomeFragment())
-                    true
+                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.bottomNavFragmentGallery -> {
                     setFragment(FirebaseGalleryFragment())
-                    true
+                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.bottomNavFragmentUpload -> {
                     setFragment(FirebaseUploadFragment())
-                    true
+                    return@setOnNavigationItemSelectedListener true
                 }
             }
             false
         }
     }
 
+    // 일일이 집어넣는것보다 fragment 이름을 활용하여 함수를 만들자. 편한방법 사용하기~
     private fun setFragment(child: Fragment) {
-        val transaction = childFragmentManager.beginTransaction();
-        if (!child.isAdded) {
-            transaction.replace(R.id.firebaseMainFragment, child)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
+        this.childFragmentManager.beginTransaction()
+                // firebase 메인 프래그레이아웃을 이용하여 해당 프래그먼트를 대체한다.
+                .replace(R.id.firebaseMainFragment, child)
+/*
+                .addToBackStack(null)
+                back버튼 누를 때마다 이전 프레그먼트로 순차적으로 이동할 때 사용. 스택이 쌓인다고 생각하면 됨.
+*/
+                .commit()
     }
-
-
 }
+

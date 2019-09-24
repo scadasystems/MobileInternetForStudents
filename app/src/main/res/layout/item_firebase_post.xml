@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="postFirebase"
+            type="com.example.mobileinternetforstudent.exampleFirebase.Post" />
+    </data>
+
+    <com.example.mobileinternetforstudent.SquareImageView
+        android:id="@+id/img_firebase_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        android:transitionName="image"
+        bind:imageUrl="@{postFirebase.imageUrl}" />
+
+</layout>

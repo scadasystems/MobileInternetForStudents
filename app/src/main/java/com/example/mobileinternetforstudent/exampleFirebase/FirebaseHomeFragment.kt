@@ -23,29 +23,24 @@ class FirebaseHomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        // json 애니메이션을 셋팅한다.
         lottie_firebase_home.setAnimation("ani_upload.json")
+        // 반복하기
         lottie_firebase_home.loop(true)
+        // 애니메이션 재생하기
         lottie_firebase_home.playAnimation()
+        // 애니메이션에 대한 업데이트 리스너
         lottie_firebase_home.addAnimatorUpdateListener {
             object : Animator.AnimatorListener {
                 override fun onAnimationRepeat(p0: Animator?) {
-
                 }
-
                 override fun onAnimationEnd(p0: Animator?) {
                 }
-
                 override fun onAnimationCancel(p0: Animator?) {
                 }
-
                 override fun onAnimationStart(p0: Animator?) {
                 }
-
             }
-
-
         }
     }
-
 }

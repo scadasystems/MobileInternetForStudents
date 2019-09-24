@@ -1,8 +1,9 @@
-package com.example.mobileinternetforstudent
+package com.example.mobileinternetforstudent.exampleFirebase
 
-import android.content.Context
-import android.widget.Toast
-import androidx.fragment.app.Fragment
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
+import com.example.mobileinternetforstudent.R
 
 /*********************************************************
  * $$ \                               $$ \                      $$\            $$\
@@ -17,16 +18,15 @@ import androidx.fragment.app.Fragment
  * Project : MobileInternetForStudent
  * Created by Android Studio
  * Developer : Lulz_M
- * Date : 2019-09-19
- * Time : 17:55
+ * Date : 2019-09-24
+ * Time : 18:24
  * GitHub : https://github.com/scadasystems
  * E-mail : redsmurf@lulzm.org
  *********************************************************/
-
-fun Context.toast(text: String) {
-    Toast.makeText(this, "$text", Toast.LENGTH_SHORT).show()
-}
-
-fun Fragment.toast(text:String) {
-    Toast.makeText(requireContext(), "$text", Toast.LENGTH_SHORT).show()
+@BindingAdapter("imageUrl")
+fun imageUrl(view: ImageView, uri: String) {
+    Glide.with(view)
+            .load(uri)
+            .placeholder(R.mipmap.ic_launcher)
+            .into(view)
 }
