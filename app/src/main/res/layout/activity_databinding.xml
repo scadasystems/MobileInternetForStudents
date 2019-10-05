@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataVar"
+            type="com.example.mobileinternetforstudent.exampleDatabinding.Data" />
+
+        <variable
+            name="activity"
+            type="com.example.mobileinternetforstudent.exampleDatabinding.DatabindingActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".exampleDatabinding.DatabindingActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:textSize="30sp"
+            android:text="@{dataVar.text}"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="o"
+            tools:text="들어갈 텍스트" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:hint="실시간 텍스트 바꾸기"
+            android:inputType="text"
+            android:maxLength="10"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline02"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_send"
+            app:layout_constraintTop_toTopOf="@+id/guideline01"
+            app:layout_constraintWidth_percent="0.45"
+            tools:targetApi="o" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_send"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#6A1B9A"
+            android:text="추가하기"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline02"
+            app:layout_constraintLeft_toRightOf="@+id/edt_text"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline01" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline02">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_databinding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline02" />
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

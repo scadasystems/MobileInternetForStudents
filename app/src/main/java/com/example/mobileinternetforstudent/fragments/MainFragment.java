@@ -1,11 +1,13 @@
 package com.example.mobileinternetforstudent.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.mobileinternetforstudent.R;
+import com.example.mobileinternetforstudent.exampleDatabinding.DatabindingActivity;
 import com.google.android.material.button.MaterialButton;
 
 
@@ -70,5 +73,12 @@ public class MainFragment extends Fragment {
         View.OnClickListener onClickListener = Navigation.createNavigateOnClickListener(R.id.action_mainFragment_to_QRFragment, bundle);
         // 클릭리스너 생성
         btnQr.setOnClickListener(onClickListener);
+
+        // databinding 이동
+        TextView tv_databinding = view.findViewById(R.id.tv_databinding);
+        tv_databinding.setOnClickListener(view1 -> {
+            Intent intent_databinding = new Intent(requireContext(), DatabindingActivity.class);
+            startActivity(intent_databinding);
+        });
     }
 }

@@ -6,19 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".fragments.MainFragment">
 
-    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical_center"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cv_json"
         android:layout_width="0dp"
-        android:layout_height="170dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="5dp"
         card_view:cardCornerRadius="10dp"
         card_view:cardElevation="8dp"
         card_view:layout_constraintRight_toLeftOf="@+id/cv_map"
-        card_view:layout_constraintStart_toStartOf="parent"
-        card_view:layout_constraintTop_toTopOf="parent"
-        card_view:layout_constraintWidth_percent="0.45">
+        card_view:layout_constraintStart_toStartOf="@+id/guideline_vertical_left"
+        card_view:layout_constraintEnd_toEndOf="@+id/guideline_vertical_center"
+        card_view:layout_constraintBottom_toBottomOf="@+id/guideline01"
+        card_view:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tv_json"
@@ -36,17 +59,16 @@
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cv_map"
         android:layout_width="0dp"
-        android:layout_height="170dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
         card_view:cardCornerRadius="10dp"
         card_view:cardElevation="8dp"
-        card_view:layout_constraintEnd_toEndOf="parent"
-        card_view:layout_constraintLeft_toRightOf="@+id/cv_json"
-        card_view:layout_constraintTop_toTopOf="parent"
-        card_view:layout_constraintVertical_weight="1"
-        card_view:layout_constraintWidth_percent="0.45">
+        card_view:layout_constraintStart_toStartOf="@+id/guideline_vertical_center"
+        card_view:layout_constraintEnd_toEndOf="@+id/guideline_vertical_right"
+        card_view:layout_constraintBottom_toBottomOf="@+id/guideline01"
+        card_view:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tv_map"
@@ -65,45 +87,85 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.28" />
+        app:layout_constraintGuide_percent="0.250342" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_webview"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-        android:onClick="btnWebview"
         android:layout_width="0dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="5dp"
         android:backgroundTint="#ffffff"
         android:elevation="10dp"
+        android:onClick="btnWebview"
         android:text="WebView\n예제"
         android:textColor="#757575"
         android:textSize="30sp"
         app:cornerRadius="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline02"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_vertical_center"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_left"
         app:layout_constraintTop_toTopOf="@id/guideline01"
-        app:layout_constraintVertical_weight="1"
-        app:layout_constraintWidth_percent="0.45"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="OnClick" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_qr"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="0dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
         android:backgroundTint="#ffffff"
         android:elevation="10dp"
         android:text="QR\n예제"
         android:textColor="#757575"
         android:textSize="30sp"
         app:cornerRadius="10dp"
-        app:layout_constraintLeft_toRightOf="@id/btn_webview"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_center"
         app:layout_constraintTop_toTopOf="@id/guideline01"
-        app:layout_constraintVertical_weight="1"
-        app:layout_constraintWidth_percent="0.45"
-        tools:ignore="OnClick" />
+        app:layout_constraintEnd_toEndOf="@+id/guideline_vertical_right"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline02"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cv_databinding"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="5dp"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="8dp"
+        card_view:layout_constraintStart_toStartOf="@+id/guideline_vertical_left"
+        card_view:layout_constraintEnd_toEndOf="@+id/guideline_vertical_center"
+        card_view:layout_constraintBottom_toBottomOf="@+id/guideline03"
+        card_view:layout_constraintTop_toTopOf="@+id/guideline02">
+
+        <TextView
+            android:id="@+id/tv_databinding"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Databinding\n예제"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
