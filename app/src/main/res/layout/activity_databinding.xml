@@ -20,6 +20,10 @@
         android:layout_height="match_parent"
         tools:context=".exampleDatabinding.DatabindingActivity">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_main" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_text"
             android:layout_width="wrap_content"
@@ -30,7 +34,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/guideline01"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
             tools:targetApi="o"
             tools:text="들어갈 텍스트" />
 

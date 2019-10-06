@@ -1,15 +1,19 @@
 package com.example.mobileinternetforstudent.exampleDatabinding
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileinternetforstudent.BR
+import com.example.mobileinternetforstudent.MainActivity
 import com.example.mobileinternetforstudent.R
 import com.example.mobileinternetforstudent.databinding.ActivityDatabindingBinding
 import com.example.mobileinternetforstudent.databinding.ItemDatabindingPostBinding
@@ -24,6 +28,12 @@ class DatabindingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_databinding)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        setSupportActionBar(toolbar)
+        getSupportActionBar()!!.setDisplayHomeAsUpEnabled(true)  // toolbar에 뒤로가기 버튼 생성
+        getSupportActionBar()!!.setTitle("Databinding 예제")
 
         // Data.kt에 데이터를 설정
         val origin_text = Data("데이터바인딩 기초")
@@ -66,12 +76,23 @@ class DatabindingActivity : AppCompatActivity() {
                 toast("$text_list")
             }
         }
+    }
 
+    /*  toolbar 뒤로가기 버튼 누를 시 메인으로 이동 */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                val intent_home = Intent(this, MainActivity::class.java)
+                startActivity(intent_home)
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
 
 // 리사이클러뷰 어댑터
-class MyAdapter(val items: List<Data>, private val clickListener : (text: Data) -> Unit) :
+class MyAdapter(val items: List<Data>, private val clickListener: (text: Data) -> Unit) :
         RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     class MyViewHolder(val binding: ItemDatabindingPostBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -92,5 +113,4 @@ class MyAdapter(val items: List<Data>, private val clickListener : (text: Data) 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.binding.textData = items[position]
     }
-
 }
