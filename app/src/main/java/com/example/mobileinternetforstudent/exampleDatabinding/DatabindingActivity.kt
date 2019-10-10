@@ -17,12 +17,16 @@ import com.example.mobileinternetforstudent.MainActivity
 import com.example.mobileinternetforstudent.R
 import com.example.mobileinternetforstudent.databinding.ActivityDatabindingBinding
 import com.example.mobileinternetforstudent.databinding.ItemDatabindingPostBinding
+import com.example.mobileinternetforstudent.exampleRealtime.RealtimeActivity
 import com.example.mobileinternetforstudent.toast
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_databinding.*
 
 class DatabindingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDatabindingBinding
+    // firebase
+    private val mRef = FirebaseDatabase.getInstance().reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +61,25 @@ class DatabindingActivity : AppCompatActivity() {
 
         val text_list = arrayListOf<Data>()
 
+        // firebase recyclerview 이동
+        btn_go_fireRecycler.setOnClickListener {
+            val intent_fire = Intent(this, RealtimeActivity::class.java)
+            startActivity(intent_fire)
+        }
+
         // 버튼이벤트
         btn_send.setOnClickListener {
             val textData = edt_text.text.toString()     // EditText의 문자열을 변수에 넣는다.
             if (textData.isNotEmpty()) {        // 문자열의 값이 있으면
+
+                val text_body = HashMap<String, Any>() // 저장할 데이터가 text 하나만 있으므로 <String, Any>
+                text_body["text"] = textData    // text라는 노드에 EditText 문자값 저장.
+                ///////////////////////////////////////////////////////////////////////////
+                // child를 통해 노드 이름을 바꿀 수 있으며 생성한다.
+                // push() 메서드를 사용해 데이터를 반복해서 넣을 수 있게 하고 setValue의 데이터를 저장한다.
+                ///////////////////////////////////////////////////////////////////////////
+                mRef.child("data").child("texts").push().setValue(text_body)
+
                 text_list.add(Data(textData))   // arrayList에 넣는다.
 //                rv_databinding.adapter?.notifyDataSetChanged()        // notifyDataSetChanged 은 새로고침이 있다. 없으려면 아래처럼.
                 rv_databinding.adapter?.notifyItemInserted(text_list.size)      // 넣은 아이템을 리스트 마지막에 넣으면 보여준다.

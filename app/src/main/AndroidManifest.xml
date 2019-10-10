@@ -21,7 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".exampleDatabinding.DatabindingActivity"></activity>
+        <activity android:name=".exampleRealtime.RealtimeActivity"></activity>
+        <activity android:name=".exampleDatabinding.DatabindingActivity" />
         <activity android:name=".exampleWebView.WebviewActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
