@@ -42,7 +42,6 @@ class RealtimeActivity : AppCompatActivity() {
                 .build()
 
         val firebaseRecyclerAdapter = object : FirebaseRecyclerAdapter<Model, MyViewHolder>(option) {
-
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
                 // item_databinding_post.xml 과 연결
                 val itemView = LayoutInflater.from(this@RealtimeActivity).inflate(R.layout.item_databinding_post, parent, false)
@@ -52,7 +51,7 @@ class RealtimeActivity : AppCompatActivity() {
             override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: Model) {
                 val placeid = getRef(position).key.toString()
 
-                mRef.child(placeid).addValueEventListener(object : ValueEventListener{
+                mRef.child(placeid).addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
                         toast("Error : " + error.toException())
                     }

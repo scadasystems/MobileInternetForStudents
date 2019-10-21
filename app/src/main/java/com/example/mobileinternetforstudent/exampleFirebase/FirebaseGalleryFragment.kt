@@ -57,7 +57,6 @@ class FirebaseGalleryFragment : Fragment() {
         adapter.stopListening()
     }
 
-
     class PostAdapter(
             options: FirestoreRecyclerOptions<Post>     // FirebaseUI 를 사용한 firestoreRecyclerOptions
     ) : FirestoreRecyclerAdapter<Post, PostAdapter.PostHolder>(options) {
